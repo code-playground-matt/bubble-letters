@@ -61,6 +61,7 @@ Vehicle.prototype.update = function() {
 }
 
 Vehicle.prototype.show = function() {
+  this.distance = constrain(this.distance, 0, 100);
   var c = map(this.distance, 0, width, 0, 255);
   stroke(c, 100, 100, 255);
   strokeWeight(this.r);
