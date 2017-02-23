@@ -64,7 +64,7 @@ Vehicle.prototype.show = function() {
   d = this.distance;
   if (d > 100) { d = 100; }
   var c = map(d, 0, 100, 0, 255);
-  stroke(c, 100, 100, 255);
+  stroke(random(0,255), 100, 100, 255);
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
