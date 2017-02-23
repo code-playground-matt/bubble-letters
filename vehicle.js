@@ -6,6 +6,7 @@ function Vehicle(x, y) {
   this.r = 4;
   this.maxSpeed = 10;
   this.maxForce = 1;
+  this.distance = 0;
 }
 
 Vehicle.prototype.behaviours = function() {
@@ -24,6 +25,7 @@ Vehicle.prototype.behaviours = function() {
 Vehicle.prototype.arrive = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
   var d = desired.mag();
+  this.distance = d;
   var speed = this.maxSpeed;
   if (d < 100) {
     speed = map(d, 0, 100, 0, this.maxSpeed);
@@ -59,8 +61,8 @@ Vehicle.prototype.update = function() {
 }
 
 Vehicle.prototype.show = function() {
-  var c = map(this.pos.x, 0, width, 0, 255);
-  stroke(c);
+  var c = map(this.distance, 0, width, 0, 255);
+  stroke(c, 100, 100, 255);
   strokeWeight(this.r);
   point(this.pos.x, this.pos.y);
 }
