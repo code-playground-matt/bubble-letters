@@ -30,6 +30,7 @@ function preload() {
 }
 
 function setup() {
+  colorMode(HSB);
   console.log('setup() started');
 
   createCanvas(800, 600);
